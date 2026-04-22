@@ -103,6 +103,16 @@ function DashboardContent() {
         ))}
       </div>
 
+      {/* Banner modo ficticio */}
+      {session.toLowerCase() === 'ficticio' && (
+        <div style={{ background: '#E8C547', padding: '0.5rem 1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <span>🎭</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: '#0D0D0D', fontWeight: 600 }}>
+            MODO DEMOSTRACIÓN — 26 estudiantes ficticios con patrones intencionados. Los datos reales no se modifican.
+          </span>
+        </div>
+      )}
+
       {/* Main content */}
       <div style={{ padding: '1.5rem', maxWidth: 1200, margin: '0 auto' }}>
         {loading ? (

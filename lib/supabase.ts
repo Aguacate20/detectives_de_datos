@@ -50,6 +50,13 @@ export async function submitResponse(data: StudentResponse) {
 }
 
 export async function getSessionResponses(sessionCode: string, activityId?: number) {
+  // Datos ficticios — sin llamada a Supabase
+  if (sessionCode.toLowerCase() === 'ficticio') {
+    const { getMockData } = await import('./mockData')
+    const mock = getMockData(activityId || 1)
+    return activityId ? mock.filter(r => r.activity_id === activityId) : mock
+  }
+
   let query = supabase
     .from('student_responses')
     .select('*')
